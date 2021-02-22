@@ -1,14 +1,15 @@
 import os
+import random
 import shelve
 import pymongo
 import logging
 
-from typing import List
+from typing import List, Tuple
 
 from .user import User
 from .image import Image
 from .filter import Filter
-from .config import PFIN_SERVER
+from .config import PFIN_SERVER, IMAGE_HOST_URL
 from .utils import hash_password
 
 
@@ -65,12 +66,18 @@ class Database:
 
 class ImageDatabase(Database):
 
-    image_host_url = "/images/"
+    def get_x_random_images(self, limit: int = 10, additional_filter: dict = None) -> List[Image]:
+        if additional_filter is None:
+            additional_filter = {}
+        images = list(self._collection.find(additional_filter, limit=limit * 5))
+        random.shuffle(images)
+        return [Image(info) for info in images[:limit]]
 
-    def get_image_url(self, image: Image) -> str:
+    def get_image_url(self, image: Image) -> Tuple[str, str]:
         file_name = f'{image.id}.{image.extension}'
-        url = f'{os.path.join(self.image_host_url, file_name)}'
-        return url
+        full = f'{os.path.join(IMAGE_HOST_URL, "fulls/", file_name)}'
+        thumb = f'{os.path.join(IMAGE_HOST_URL, "thumbs/", file_name)}'
+        return full, thumb
 
     def create_filter_from_args(self, args: dict) -> Filter:
         """

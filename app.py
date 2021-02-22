@@ -86,7 +86,7 @@ def request_loader(request):
 
 @app.route('/')
 def home():
-    return flask.render_template('index.html')
+    return flask.render_template('index.html', image_db=image_db)
 
 
 @app.route('/sort')
