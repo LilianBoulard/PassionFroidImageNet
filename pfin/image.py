@@ -1,4 +1,9 @@
+import os
+
+from typing import Tuple
+
 from .utils import validate_fields
+from .config import IMAGE_HOST_URL
 
 
 # Every image object should have this structure.
@@ -44,3 +49,9 @@ class Image:
     def set_attributes(self, attr: dict):
         for key, value in attr.items():
             self.__setattr__(key, value)
+
+    def get_url(self) -> Tuple[str, str]:
+        file_name = f'{self.id}.{self.extension}'
+        full = f'{os.path.join(IMAGE_HOST_URL, "fulls/", file_name)}'
+        thumb = f'{os.path.join(IMAGE_HOST_URL, "thumbs/", file_name)}'
+        return full, thumb
