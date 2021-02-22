@@ -68,15 +68,17 @@ class ImageDatabase(Database):
 
     image_host_url = "static/images/"
 
-    def get_x_random_images(self, limit: int = 10) -> List[Image]:
-        images = list(self._collection.find({}, limit=limit * 5))
+    def get_x_random_images(self, limit: int = 10, additional_filter: dict = None) -> List[Image]:
+        if additional_filter is None:
+            additional_filter = {}
+        images = list(self._collection.find(additional_filter, limit=limit * 5))
         random.shuffle(images)
-        return [Image(info) for info in images[limit]]
+        return [Image(info) for info in images[:limit]]
 
     def get_image_url(self, image: Image) -> Tuple[str, str]:
         file_name = f'{image.id}.{image.extension}'
-        full = f'{os.path.join(self.image_host_url, "full",file_name)}'
-        thumb = f'{os.path.join(self.image_host_url, "thumb", file_name)}'
+        full = f'{os.path.join(self.image_host_url, "fulls/", file_name)}'
+        thumb = f'{os.path.join(self.image_host_url, "thumbs/", file_name)}'
         return full, thumb
 
     def create_filter_from_args(self, args: dict) -> Filter:
