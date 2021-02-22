@@ -9,7 +9,7 @@ from typing import List, Tuple
 from .user import User
 from .image import Image
 from .filter import Filter
-from .config import PFIN_SERVER
+from .config import PFIN_SERVER, IMAGE_HOST_URL
 from .utils import hash_password
 
 
@@ -66,8 +66,6 @@ class Database:
 
 class ImageDatabase(Database):
 
-    image_host_url = "static/images/"
-
     def get_x_random_images(self, limit: int = 10, additional_filter: dict = None) -> List[Image]:
         if additional_filter is None:
             additional_filter = {}
@@ -77,8 +75,8 @@ class ImageDatabase(Database):
 
     def get_image_url(self, image: Image) -> Tuple[str, str]:
         file_name = f'{image.id}.{image.extension}'
-        full = f'{os.path.join(self.image_host_url, "fulls/", file_name)}'
-        thumb = f'{os.path.join(self.image_host_url, "thumbs/", file_name)}'
+        full = f'{os.path.join(IMAGE_HOST_URL, "fulls/", file_name)}'
+        thumb = f'{os.path.join(IMAGE_HOST_URL, "thumbs/", file_name)}'
         return full, thumb
 
     def create_filter_from_args(self, args: dict) -> Filter:
