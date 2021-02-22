@@ -23,10 +23,12 @@
 
 		<!-- Header -->
 		<header id="header">
-			<a href="https://www.passionfroid.fr/"></a><img src="https://www.passionfroid.fr/themes/custom/passionfroid_theme/logo.png" width = "100em" alt="logo_PassionFroid"></a>
-            <h1><a href="index"><strong> Trier</strong></a></h1>
-            <nav> 
-				<ul> 
+			<a href="https://www.passionfroid.fr/"></a><img
+				src="https://www.passionfroid.fr/themes/custom/passionfroid_theme/logo.png" width="100em"
+				alt="logo_PassionFroid"></a>
+			<h1><a href="index"><strong> Trier</strong></a></h1>
+			<nav>
+				<ul>
 					<li><a href="#footer" class="icon solid fa-info-circle">Connexion</a></li>
 				</ul>
 			</nav>
@@ -34,14 +36,14 @@
 
 		<!-- Main -->
 		<div id="main">
-            <div class="sortForm">
-                <section>
-                    <h2>Filtrez votre recherche</h2>
-                    <form method="post" action="#">
-                        <ul class="actions">
-                            <div >
-                                <input type="text" name="name" id="name" placeholder="Name" />
-                            </div>
+			<div class="sortForm">
+				<section>
+					<h2>Filtrez votre recherche</h2>
+					<form method="post" action="#">
+						<ul class="actions">
+							<div>
+								<input type="text" name="name" id="name" placeholder="Name" />
+							</div>
 							<div>
 								<select class="form-select" aria-label="Type of image">
 									<option selected>Type d'image</option>
@@ -50,35 +52,91 @@
 									<option value="3">Logo</option>
 								</select>
 							</div>
-                            <div>
-                                <p>Photo avec produit</p>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioProduct" id="inlineRadio1" value="option1">
-                                    <label class="form-check-label" for="inlineRadio1">oui</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioProduct" id="inlineRadio2" value="option2">
-                                    <label class="form-check-label" for="inlineRadio2">non</label>
-                                </div>
-                            </div>
-                            <div>
-                                <p>Photo avec humain</p>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioHuman" id="inlineRadio1" value="option1">
-                                    <label class="form-check-label" for="inlineRadio1">oui</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioHuman" id="inlineRadio2" value="option2">
-                                    <label class="form-check-label" for="inlineRadio2">non</label>
-                                </div>
-                            </div>
-                            <li><input type="submit" value="Send" class="primary" /></li>
-                        </ul>
-                    </form>
-                </section>
-            </div>
-        </div>
-        
+							<div>
+								<p>Photo avec produit :</p>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" name="inlineRadioProduct"
+										id="inlineRadioProduct1" value="option1">
+									<label class="form-check-label" for="inlineRadioProduct1">oui</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" name="inlineRadioProduct"
+										id="inlineRadioProduct2" value="option2">
+									<label class="form-check-label" for="inlineRadioProduct2">non</label>
+								</div>
+							</div>
+							<div>
+								<p>Photo avec humain :</p>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" name="inlineRadioHuman"
+										id="inlineRadioHuman1" value="option1">
+									<label class="form-check-label" for="inlineRadioHuman1">oui</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" name="inlineRadioHuman"
+										id="inlineRadioHuman2" value="option2">
+									<label class="form-check-label" for="inlineRadioHuman2">non</label>
+								</div>
+							</div>
+							<div>
+								<p>Photo institutionnelle :</p>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" name="inlineRadioInsti"
+										id="inlineRadioInsti1" value="option1">
+									<label class="form-check-label" for="inlineRadioInsti1">oui</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" name="inlineRadioInsti"
+										id="inlineRadioInsti2" value="option2">
+									<label class="form-check-label" for="inlineRadioInsti2">non</label>
+								</div>
+							</div>
+							<div>
+								<p>Format :</p>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" name="inlineRadioFormat"
+										id="inlineRadioFormat1" value="option1">
+									<label class="form-check-label" for="inlineRadioFormat1">vertical</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" name="inlineRadioFormat"
+										id="inlineRadioFormat2" value="option2">
+									<label class="form-check-label" for="inlineRadioFormat2">horizontal</label>
+								</div>
+							</div>
+							<div>
+								<input type="text" name="credit" id="credit" placeholder="Crédit photo" />
+							</div>
+							<div>
+								<p>Droit d'utilisation limités :</p>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" name="inlineRadioDroit"
+										id="inlineRadioDroit1" value="option1">
+									<label class="form-check-label" for="inlineRadioDroit1">vertical</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" name="inlineRadioDroit"
+										id="inlineRadioDroit2" value="option2">
+									<label class="form-check-label" for="inlineRadioDroit2">horizontal</label>
+								</div>
+							</div>
+							<div class="form-group row">
+								<p>Date de droit de fin d'utilisation :</p>
+								<label for="example-date-input" class="col-2 col-form-label"></label>
+								<div class="col-10">
+									<input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+								</div>
+							</div>
+							<div>
+								<input type="text" name="tags" id="tags" placeholder="Tags" />
+							</div>
+							<li><input type="submit" value="Send" class="primary" /></li>
+						</ul>
+					</form>
+				</section>
+			</div>
+		</div>
+
 		<!-- Footer -->
 		<footer id="footer" class="panel">
 			<div class="inner split">
@@ -102,8 +160,9 @@
 				</div>
 				<div>
 					<section>
-						<h2>Inscription(Peut etre)</h2> <!-- on voit si on en fait un form d'inscription sinon on supr -->
-						<form method="post" action="#"> 
+						<h2>Inscription(Peut etre)</h2>
+						<!-- on voit si on en fait un form d'inscription sinon on supr -->
+						<form method="post" action="#">
 							<div class="fields">
 								<div class="field half">
 									<input type="text" name="name" id="name" placeholder="Name" />
@@ -121,7 +180,7 @@
 							</ul>
 						</form>
 					</section>
-			 	</div>
+				</div>
 			</div>
 		</footer>
 	</div>
