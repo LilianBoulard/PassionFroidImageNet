@@ -1,4 +1,4 @@
 *.idea/
 
 # Exclude config file
-pfin/config.py
+/pfin/config.py
