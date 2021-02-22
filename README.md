@@ -1,20 +1,22 @@
-# PassionFroidImageNet
+# PassionFroidImageNet (PFIN)
 Repository for the Ynov 48h challenge
 
 
 ## Technical information
 
-This project uses a NoSQL database and stores images .  
+This project uses a NoSQL database to store images.
 
-Note: due to privacy concerns, the server's address is not hard-coded, 
-but referenced by the environment variable `PFIN_SERVER`.
+Two configuration variables are defined:
+- `PFIN_SERVER`: the server's address.  
+- `PFIN_SECRET`: a secret key used locally.
 
-It uses Flask for the front-end, which uses another environment variable named `PFIM_SECRET`.
+Both are set in the file `pfin/config.py`.
 
 
 ## Cloning the repository locally
 
     git clone https://github.com/LilianBoulard/PassionFroidImageNet
+
 
 ## Installing the requirements
 
@@ -24,6 +26,7 @@ Those are listed in the file `requirements.txt`.
 To install them, launch the command:
 
     pip install -r requirements.txt
+
 
 ## Launching the server
 
