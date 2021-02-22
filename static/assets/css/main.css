@@ -1639,6 +1639,7 @@ body {
   user-select: none;
   width: 100%;
   z-index: 10002;
+  position: fixed;
 }
 
 body.is-preload #header {
