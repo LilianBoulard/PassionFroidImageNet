@@ -1,9 +1,10 @@
 import os
+import random
 import shelve
 import pymongo
 import logging
 
-from typing import List
+from typing import List, Tuple
 
 from .user import User
 from .image import Image
@@ -65,12 +66,18 @@ class Database:
 
 class ImageDatabase(Database):
 
-    image_host_url = "/images/"
+    image_host_url = "static/images/"
 
-    def get_image_url(self, image: Image) -> str:
+    def get_x_random_images(self, limit: int = 10) -> List[Image]:
+        images = list(self._collection.find({}, limit=limit * 5))
+        random.shuffle(images)
+        return [Image(info) for info in images[limit]]
+
+    def get_image_url(self, image: Image) -> Tuple[str, str]:
         file_name = f'{image.id}.{image.extension}'
-        url = f'{os.path.join(self.image_host_url, file_name)}'
-        return url
+        full = f'{os.path.join(self.image_host_url, "full",file_name)}'
+        thumb = f'{os.path.join(self.image_host_url, "thumb", file_name)}'
+        return full, thumb
 
     def create_filter_from_args(self, args: dict) -> Filter:
         """
