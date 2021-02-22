@@ -91,7 +91,7 @@ def home():
 
 @app.route('/sort')
 def sort():
-    return flask.rende
+    return flask.render_template('sort.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
