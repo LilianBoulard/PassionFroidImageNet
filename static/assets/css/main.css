@@ -140,7 +140,6 @@ embed,
 figure,
 figcaption,
 footer,
-header,
 hgroup,
 menu,
 nav,
@@ -158,6 +157,7 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  color: whitesmoke;
 }
 
 article,
@@ -1165,17 +1165,17 @@ table.alt tfoot {
 
 .panel {
   padding: 4em 4em 2em 4em;
-  -moz-transform: translateY(100vh);
-  -webkit-transform: translateY(100vh);
-  -ms-transform: translateY(100vh);
-  transform: translateY(100vh);
+  -moz-transform: translateY(-100vh);
+  -webkit-transform: translateY(-100vh);
+  -ms-transform: translateY(-100vh);
+  transform: translateY(-100vh);
   -moz-transition: -moz-transform 0.5s ease;
   -webkit-transition: -webkit-transform 0.5s ease;
   -ms-transition: -ms-transform 0.5s ease;
   transition: transform 0.5s ease;
   -webkit-overflow-scrolling: touch;
   background: rgba(36, 38, 41, 0.975);
-  bottom: 4em;
+  top: 4.9em;
   left: 0;
   max-height: calc(80vh - 4em);
   overflow-y: auto;
@@ -1275,7 +1275,6 @@ table.alt tfoot {
     bottom: auto;
     top: calc(4em - 1px);
   }
-
   .panel.active {
     -moz-transform: translateY(0);
     -webkit-transform: translateY(0);
@@ -1637,7 +1636,6 @@ body {
   left: 0;
   line-height: 4em;
   padding: 0 1.5em;
-  position: fixed;
   user-select: none;
   width: 100%;
   z-index: 10002;
@@ -1717,6 +1715,9 @@ body.is-preload #header {
     padding: 4em 0 0 0;
   }
 
+  #header img {
+    width: 3.5em;
+  }
   #header {
     -moz-transform: translateY(0);
     -webkit-transform: translateY(0);
@@ -1807,7 +1808,6 @@ body.is-preload #header {
   height: 100%;
   left: 0;
   position: absolute;
-  top: 0;
   width: 100%;
 }
 
@@ -2210,10 +2210,15 @@ body.is-preload #main .thumb {
   }
 }
 
+#sortForm {
+  margin-top: 99em;
+  top: 99em;
+}
+
 /* Footer */
 
 #footer .copyright {
-  color: #505051;
+  color: #3b3b9e;
   font-size: 0.9em;
 }
 
