@@ -2,4 +2,4 @@ flask
 flask_login
 pymongo
 dnspython
-PIL
+pillow
