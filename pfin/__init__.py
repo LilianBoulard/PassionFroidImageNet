@@ -1,9 +1,13 @@
 import sys
 import logging
 
+from .image import Image
+from .filter import Filter
+from .user import User, DummyUser
 from .config import PFIN_SERVER, PFIN_SECRET
+from .database import ImageDatabase, UserDatabase
 
-__all__ = ['PFIN_SERVER', 'PFIN_SECRET']
+__all__ = ['Image', 'Filter', 'User', 'DummyUser', 'PFIN_SERVER', 'PFIN_SECRET', 'ImageDatabase', 'UserDatabase']
 
 
 ###########
