@@ -38,7 +38,7 @@
 				<div class="sortForm">
 					<section>
 						<h2 margin="0 auto"> </h2>
-						<form method="post" action="#">
+						<form method="get" action="/sort">
 							<ul class="actions">
 								<div>
 									<input type="text" name="name" id="name" placeholder="Nom" />
@@ -54,53 +54,53 @@
 								<div>
 									<label>Photo avec produit :</label>
 									<div class="form-check form-check-inline">
-										<input class="form-check-input" type="radio" name="inlineRadioProduct"
-											id="inlineRadioProduct1" value="option1">
-										<label class="form-check-label" for="inlineRadioProduct1">oui</label>
+										<input class="form-check-input" type="radio" name="product_in"
+											id="product_in_yes" value="yes">
+										<label class="form-check-label" for="product_in_yes">oui</label>
 									</div>
 									<div class="form-check form-check-inline">
-										<input class="form-check-input" type="radio" name="inlineRadioProduct"
-											id="inlineRadioProduct2" value="option2">
-										<label class="form-check-label" for="inlineRadioProduct2">non</label>
+										<input class="form-check-input" type="radio" name="product_in"
+											id="product_in_no" value="no">
+										<label class="form-check-label" for="product_in_no">non</label>
 									</div>
 								</div>
 								<div>
 									<label>Photo avec humain :</label>
 									<div class="form-check form-check-inline">
-										<input class="form-check-input" type="radio" name="inlineRadioHuman"
-											id="inlineRadioHuman1" value="option1">
-										<label class="form-check-label" for="inlineRadioHuman1">oui</label>
+										<input class="form-check-input" type="radio" name="human_in"
+											id="human_in_yes" value="yes">
+										<label class="form-check-label" for="human_in_yes">oui</label>
 									</div>
 									<div class="form-check form-check-inline">
-										<input class="form-check-input" type="radio" name="inlineRadioHuman"
-											id="inlineRadioHuman2" value="option2">
-										<label class="form-check-label" for="inlineRadioHuman2">non</label>
+										<input class="form-check-input" type="radio" name="human_in"
+											id="human_in_no" value="no">
+										<label class="form-check-label" for="human_in_no">non</label>
 									</div>
 								</div>
 								<div>
 									<label>Photo institutionnelle :</label>
 									<div class="form-check form-check-inline">
-										<input class="form-check-input" type="radio" name="inlineRadioInsti"
-											id="inlineRadioInsti1" value="option1">
-										<label class="form-check-label" for="inlineRadioInsti1">oui</label>
+										<input class="form-check-input" type="radio" name="institutional"
+											id="institutional_yes" value="yes">
+										<label class="form-check-label" for="institutional_yes">oui</label>
 									</div>
 									<div class="form-check form-check-inline">
 										<input class="form-check-input" type="radio" name="inlineRadioInsti"
-											id="inlineRadioInsti2" value="option2">
-										<label class="form-check-label" for="inlineRadioInsti2">non</label>
+											id="institutional_no" value="no">
+										<label class="form-check-label" for="institutional_no">non</label>
 									</div>
 								</div>
 								<div>
 									<label>Format :</label>
 									<div class="form-check form-check-inline">
-										<input class="form-check-input" type="radio" name="inlineRadioFormat"
-											id="inlineRadioFormat1" value="option1">
-										<label class="form-check-label" for="inlineRadioFormat1">vertical</label>
+										<input class="form-check-input" type="radio" name="format"
+											id="format_vertical" value="vertical">
+										<label class="form-check-label" for="format_vertical">vertical</label>
 									</div>
 									<div class="form-check form-check-inline">
-										<input class="form-check-input" type="radio" name="inlineRadioFormat"
-											id="inlineRadioFormat2" value="option2">
-										<label class="form-check-label" for="inlineRadioFormat2">horizontal</label>
+										<input class="form-check-input" type="radio" name="format"
+											id="format_horizontal" value="horizontal">
+										<label class="form-check-label" for="format_horizontal">horizontal</label>
 									</div>
 								</div>
 								<div>
@@ -109,21 +109,20 @@
 								<div>
 									<label>Droit d'utilisation limités :</label>
 									<div class="form-check form-check-inline">
-										<input class="form-check-input" type="radio" name="inlineRadioDroit"
-											id="inlineRadioDroit1" value="option1">
-										<label class="form-check-label" for="inlineRadioDroit1">vertical</label>
+										<input class="form-check-input" type="radio" name="limited_usage"
+											id="limited_usage_yes" value="yes">
+										<label class="form-check-label" for="limited_usage_yes">oui</label>
 									</div>
 									<div class="form-check form-check-inline">
-										<input class="form-check-input" type="radio" name="inlineRadioDroit"
-											id="inlineRadioDroit2" value="option2">
-										<label class="form-check-label" for="inlineRadioDroit2">horizontal</label>
+										<input class="form-check-input" type="radio" name="limited_usage"
+											id="limited_usage_no" value="no">
+										<label class="form-check-label" for="limited_usage_no">non</label>
 									</div>
 								</div>
 								<div class="form-group">
 									<label>Date de droit de fin d'utilisation :</label>
 									<div>
-										<input class="form-control" type="date" value="2011-08-19"
-											id="example-date-input">
+										<input class="form-control" type="date" id="example-date-input">
 									</div>
 								</div>
 								<div>
