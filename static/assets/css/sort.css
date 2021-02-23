@@ -2,25 +2,64 @@ header {
   background-color: #1f2224;
   color: whitesmoke;
   font-family: "Source Sans Pro", Helvetica, sans-serif;
-  height: 5.4em;
+  text-align: center;
 }
 
-.sortForm {
-  margin: 0 auto;
-  padding-top: 2em;
-  margin-top: 5em;
-  margin-bottom: 5em;
-  height: 700px;
-  width: 645px;
+.main {
+  display: flex;
+}
+.sectionForm{
+  color: whitesmoke;
+  background-color:rgba(36, 38, 41, 0.975);
+  box-sizing: border-box;
+}
+
+.sectionForm div {
+  margin-top: 0.7em;
+}
+
+.sectionForm ul {
+  padding: 25px;
+}
+
+.sectionForm{
+  align-items: left;
+  justify-content: left;
+}
+
+input {
+  background-color: #1f2224;
+  border-style: none;
+  border-radius: 5px;
+  color: whitesmoke;
+}
+
+#button {
+  background-color: #6f1d7b;
+  color: whitesmoke;
+  text-align: center;
+  padding: 10px 25px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+#button:hover {
   background-color: whitesmoke;
-  color: #1f2224;
+  color:  #6f1d7b;
+  cursor: pointer;
+  transition-duration: 0.5s;
 }
 
-.sortForm div {
-  margin-top: 0.5em;
+#date {
+  background-color: #1f2224;
+  width: 11.3em;
+  text-align: center;
 }
 
-h2 {
-  margin-left: 50%;
-  transform: translateX(-50%);
+#form-select{
+  background-color: #1f2224;
+  width: 11.3em;
+  border-style: none;
+  border-radius: 5px;
+  color: whitesmoke;
 }
