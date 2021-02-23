@@ -16,12 +16,10 @@
 </head>
 
 {% if not current_user.is_authenticated %}
-
-<body class="is-preload content-active">
-	{% else %}
-
+	<body class="is-preload content-active">
+{% else %}
 	<body class="is-preload">
-		{% endif %}
+{% endif %}
 
 		<!-- Wrapper -->
 		<div id="wrapper">
@@ -62,34 +60,34 @@
 
 			<!-- Footer -->
 			{% if not current_user.is_authenticated %}
-			<footer id="footer" class="panel active">
-				{% else %}
+				<footer id="footer" class="panel active">
+			{% else %}
 				<footer id="footer" class="panel">
-					{% endif %}
-					<div class="inner split">
-						<div>
-							<section>
-								<h2>Connexion</h2>
-								<form method="post" action="/login">
-									<div class="fields">
-										<div class="field half">
-											<input type="email" name="email" id="email" placeholder="Email" />
-										</div>
-										<div class="field half">
-											<input type="password" name="password" id="password"
-												placeholder="Mot de passe" />
-										</div>
+			{% endif %}
+				<div class="inner split">
+					<div>
+						<section>
+							<h2>Connexion</h2>
+							<form method="post" action="/login">
+								<div class="fields">
+									<div class="field half">
+										<input type="email" name="email" id="email" placeholder="Email" />
 									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Se connecter" class="primary" /></li>
-									</ul>
-								</form>
-							</section>
-						</div>
+									<div class="field half">
+										<input type="password" name="password" id="password"
+											placeholder="Mot de passe" />
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Se connecter" class="primary" /></li>
+								</ul>
+							</form>
+						</section>
 					</div>
-					<div class="cache">
-					</div>
-				</footer>
+				</div>
+				<div class="cache">
+				</div>
+			</footer>
 		</div>
 
 		<!-- Scripts -->
