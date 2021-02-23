@@ -1,0 +1,28 @@
+header {
+  background-color: #1f2224;
+  color: whitesmoke;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  height: 5.4em;
+}
+
+.informations {
+  margin: 0 auto;
+  margin-top: 5em;
+  padding-left: 2em;
+  padding-top: 1em;
+  height: 15em;
+  width: 25em;
+  background-color: whitesmoke;
+  border-radius: 1%;
+}
+.informations h2 {
+  margin-left: 1.5em;
+}
+
+.informations p {
+  margin-top: 1em;
+}
+
+.informations a {
+  margin-left: 15em;
+}

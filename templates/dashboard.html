@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <title>PassionFroid</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="static/assets/css/dashboard.css" />
+    <link rel="icon" href="https://www.passionfroid.fr/themes/custom/passionfroid_theme/logo.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <noscript>
+        <link rel="stylesheet" href="static/assets/css/noscript.css" />
+    </noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <nav class="navbar navbar-light bg-#1f2224">
+                <a href="/">
+                    <img src="https://www.groupe-pomona.fr/sites/default/files/styles/picto/public/pictos/Logo%20PassionFroid%20V2.png?itok=cuLXWWR4"
+                        width="85em" alt="logo_PassionFroid">
+                </a>
+                <p>{{ user.name }}</p>
+            </nav>
+        </header>
+
+        <!-- Main -->
+        <div id="main">
+            <div class="informations">
+                <h2>Vos informations</h2>
+                <p>Nom d'utilisateur : {{ user.name }}</p>
+                <p>Email : {{ user.email }}</p>
+                <p>Groupe utilisateur : {{ user.group }}</p>
+                <a href="/logout">Se déconnecter</a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../static/assets/js/jquery.min.js"></script>
+    <script src="../static/assets/js/jquery.poptrox.min.js"></script>
+    <script src="../static/assets/js/browser.min.js"></script>
+    <script src="../static/assets/js/breakpoints.min.js"></script>
+    <script src="../static/assets/js/util.js"></script>
+    <script src="../static/assets/js/main.js"></script>
+
+</body>
+
+</html>
