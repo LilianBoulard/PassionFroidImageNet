@@ -6,12 +6,14 @@ For this app to work, two environment variables need to be set:
 
 """
 
-import os
+import logging
 
 import pfin
 
-import flask
-import flask_login
+from flask import Flask, session, redirect, render_template, url_for, request
+from flask_login import LoginManager, login_required, login_user, logout_user, current_user
+
+from functools import wraps
 
 
 ##############
@@ -19,7 +21,7 @@ import flask_login
 ##############
 
 
-app = flask.Flask(__name__)
+app = Flask(__name__)
 
 # Get Flask secret
 PFIN_SERVER = pfin.config.PFIN_SERVER
@@ -29,7 +31,7 @@ if PFIN_SECRET == "" or PFIN_SERVER == "":
     raise ValueError('Please set your configuration variables. '
                      'They are needed to run the server.')
 
-# app.secret_key(PFIN_SECRET)
+app.config['SECRET_KEY'] = PFIN_SECRET.encode()
 
 
 ##################
@@ -46,37 +48,57 @@ user_db = pfin.UserDatabase('PFIN', 'users')
 ###################
 
 
-login_manager = flask_login.LoginManager()
+login_manager = LoginManager()
 login_manager.init_app(app)
 
 
+authenticated_users = {}
+
+
 @login_manager.user_loader
-def user_loader(identifier: str):
+def load_user(user_identifier):
+    if user_identifier in authenticated_users:
+        return authenticated_users[user_identifier]
+
+
+def permissions_required(group_id):
     """
-    :param str identifier: The user's ID (an email address).
-    :return User|None:
+    Decorator used to indicate that an endpoint needs authentication to be accessed.
+    Takes care of both checking if the user is logged_in,
+    and if it has access to the resource.
+    Note on the rights:
+    - 0: guest
+    - 1: regional
+    - 2: national
     """
-    if not user_db.does_user_exist(identifier):
-        return
-    else:
-        user = pfin.DummyUser()
-        user.id = identifier
-        return user
+    mapping = {
+        0: 'guest',
+        1: 'regional',
+        2: 'national'
+    }
+
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            user = session.get('current_user')
+            if user.group == mapping[group_id]:
+                return func(*args, **kwargs)
+            else:
+                result = "Action forbidden ; insufficient rights."
+                logging.info(result + f" User id: {user.user_id} ; Function called: {func.__name__}")
+                return
+        return wrapper
+    return decorator
 
 
-@login_manager.request_loader
-def request_loader(request):
-    email = request.form.get('email')
-    password = request.form.get('password')
-    user = user_db.login_user(email, password)
-    if user is None:
-        return
-
-    user.id = email
-    user.is_anonymous = False
-    user.is_authenticated = True
-
-    return user
+def require_login(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        if session.get('current_user') is not None:
+            return func(*args, **kwargs)
+        else:
+            return redirect('/')
+    return wrapper
 
 
 ##########
@@ -86,52 +108,40 @@ def request_loader(request):
 
 @app.route('/')
 def home():
-    return flask.render_template('index.html', image_db=image_db)
+    return render_template('index.html', image_db=image_db)
 
 
 @app.route('/sort')
 def sort():
-    return flask.render_template('sort.html')
+    return render_template('sort.html')
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['POST'])
 def login():
-    if flask.request.method == 'GET':
-        return '''
-               <form action='login' method='POST'>
-                <input type='text' name='email' id='email' placeholder='email'/>
-                <input type='password' name='password' id='password' placeholder='password'/>
-                <input type='submit' name='submit'/>
-               </form>
-               '''
-
-    email = flask.request.form.get('email')
-    password = flask.request.form.get('password')
+    email = request.form.get('email')
+    password = request.form.get('password')
 
     user = user_db.login_user(email, password)
     if user is not None:
-        user.id = email
-        flask_login.login_user(user)
-        return flask.redirect(flask.url_for('dashboard'))
+        # Logged in successfully.
+        login_user(user)
+        global authenticated_users
+        authenticated_users.update({user.get_id(): user})
+        return redirect(url_for('dashboard'))
     else:
-        return 'Bad login'
+        return redirect('/')
 
 
 @app.route('/dashboard')
-@flask_login.login_required
-def protected():
-    return 'Logged in as: ' + flask_login.current_user.id
+@login_required
+def dashboard():
+    return f'User info: {vars(current_user)}<br /><a href="/logout">Logout</a>'
 
 
 @app.route('/logout')
 def logout():
-    flask_login.logout_user()
-    return 'Logged out'
-
-
-@login_manager.unauthorized_handler
-def unauthorized_handler():
-    return 'Unauthorized'
+    logout_user()
+    return redirect('/')
 
 
 if __name__ == '__main__':

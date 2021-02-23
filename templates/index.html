@@ -28,7 +28,11 @@
 			<h1><a href="sort"><strong>Filtrer</strong></a></h1>
 			<nav>
 				<ul>
+				{% if not current_user.is_authenticated %}
 					<li><a href="#footer">Connexion</a></li>
+				{% else %}
+					<li><a href="/dashboard">Compte</a></li>
+				{% endif %}
 				</ul>
 			</nav>
 		</header>

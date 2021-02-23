@@ -124,7 +124,8 @@ class UserDatabase(Database):
             # The user does not exist.
             return
 
-        if hash_password(password) != requested_user_info['password']:
+        hashed_password = hash_password(password)
+        if hashed_password != requested_user_info['password']:
             # The password is invalid.
             return
 

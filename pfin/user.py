@@ -1,4 +1,3 @@
-import flask_login
 from .utils import validate_fields
 
 # Every user object should have this structure.
@@ -33,11 +32,23 @@ class User:
 
     def __init__(self, info: dict):
         self.set_attributes(info)
+        self.id = self.email
+        self._is_authenticated = True
+        self._is_active = True
+        self._is_anonymous = False
 
     def set_attributes(self, attr: dict):
         for key, value in attr.items():
             self.__setattr__(key, value)
 
+    def is_authenticated(self) -> bool:
+        return self._is_authenticated
 
-class DummyUser(flask_login.UserMixin):
-    pass
+    def is_active(self) -> bool:
+        return self._is_active
+
+    def is_anonymous(self) -> bool:
+        return self._is_anonymous
+
+    def get_id(self) -> str:
+        return self.id
