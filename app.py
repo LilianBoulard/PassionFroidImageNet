@@ -127,7 +127,7 @@ def login():
         login_user(user)
         global authenticated_users
         authenticated_users.update({user.get_id(): user})
-        return redirect(url_for('dashboard'))
+        return redirect('/')
     else:
         return redirect('/')
 
