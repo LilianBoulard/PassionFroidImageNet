@@ -89,8 +89,8 @@ class Filter:
         return query
 
     def picture_format(self) -> str:
-        field = 'institutional'
-        value = self._institutional
+        field = 'format'
+        value = self._picture_format
         query = '{'
         query += f'"{field}": "{value}"'
         query += '}'
