@@ -65,8 +65,7 @@
 	$panels.each(function () {
 
 		var $this = $(this),
-			$toggles = $('[href="#' + $this.attr('id') + '"]'),
-			$closer = $('<div class="closer" />').appendTo($this);
+			$toggles = $('[href="#' + $this.attr('id') + '"]');
 
 		// Closer.
 		$closer

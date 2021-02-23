@@ -15,72 +15,89 @@
 	</noscript>
 </head>
 
+{% if not current_user.is_authenticated %}
+
 <body class="is-preload content-active">
+	{% else %}
 
-	<!-- Wrapper -->
-	<div id="wrapper">
+	<body class="is-preload">
+		{% endif %}
 
-		<!-- Header -->
-		<header id="header">
-			<a href="https://www.passionfroid.fr/"></a><img
-				src="https://www.groupe-pomona.fr/sites/default/files/styles/picto/public/pictos/Logo%20PassionFroid%20V2.png?itok=cuLXWWR4"
-				width="90em" alt="logo_PassionFroid"></a>
-			<h1><a href="sort"><strong>Filtrer</strong></a></h1>
-			<nav>
-				<ul>
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<a href="https://www.passionfroid.fr/"></a><img
+					src="https://www.groupe-pomona.fr/sites/default/files/styles/picto/public/pictos/Logo%20PassionFroid%20V2.png?itok=cuLXWWR4"
+					width="90em" alt="logo_PassionFroid"></a>
+
 				{% if not current_user.is_authenticated %}
-					<li><a href="#footer">Connexion</a></li>
+				<h1><a href="/"><strong>Filtrer</strong></a></h1>
 				{% else %}
-					<li><a href="/dashboard">Compte</a></li>
+				<h1><a href="sort"><strong>Filtrer</strong></a></h1>
 				{% endif %}
-				</ul>
-			</nav>
-		</header>
+				<nav>
+					<ul>
+						{% if not current_user.is_authenticated %}
+						{% else %}
+						<li><a href="/dashboard">Compte</a></li>
+						{% endif %}
+					</ul>
+				</nav>
+			</header>
 
-		<!-- Main -->
-		<div id="main">
-			{% for img in image_db.get_x_random_images(limit=12, additional_filter={'format': False}) -%}
-			{% set full_url, thumb_url = img.get_url() %}
-			<article class="thumb">
-				<a href="{{ full_url }}" class="image"><img src="{{ thumb_url }}" alt="" /></a>
-				<h2>Ceci est une image</h2>
-				<p>Ceci est une description d'image.</p>
-			</article>
-			{% endfor %}
+			<!-- Main -->
+			<div id="main">
+				{% for img in image_db.get_x_random_images(limit=12, additional_filter={'format': False}) -%}
+				{% set full_url, thumb_url = img.get_url() %}
+				<article class="thumb">
+					<a href="{{ full_url }}" class="image"><img src="{{ thumb_url }}" alt="" /></a>
+					<h2>Ceci est une image</h2>
+					<p>Ceci est une description d'image.</p>
+				</article>
+				{% endfor %}
+			</div>
+
+			<!-- Footer -->
+			{% if not current_user.is_authenticated %}
+			<footer id="footer" class="panel active">
+				{% else %}
+				<footer id="footer" class="panel">
+					{% endif %}
+					<div class="inner split">
+						<div>
+							<section>
+								<h2>Connexion</h2>
+								<form method="post" action="/login">
+									<div class="fields">
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field half">
+											<input type="password" name="password" id="password"
+												placeholder="Mot de passe" />
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Se connecter" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+						</div>
+					</div>
+					<div class="cache">
+					</div>
+				</footer>
 		</div>
 
-		<!-- Footer -->
-		<footer id="footer" class="panel active">
-			<div class="inner split">
-				<div>
-					<section>
-						<h2>Connexion</h2>
-						<form method="post" action="/login">
-							<div class="fields">
-								<div class="field half">
-									<input type="email" name="email" id="email" placeholder="Email" />
-								</div>
-								<div class="field half">
-									<input type="password" name="password" id="password" placeholder="Mot de passe" />
-								</div>
-							</div>
-							<ul class="actions">
-								<li><input type="submit" value="Se connecter" class="primary" /></li>
-							</ul>
-						</form>
-					</section>
-				</div>
-			</div>
-		</footer>
-	</div>
-
-	<!-- Scripts -->
-	<script src="../static/assets/js/jquery.min.js"></script>
-	<script src="../static/assets/js/jquery.poptrox.min.js"></script>
-	<script src="../static/assets/js/browser.min.js"></script>
-	<script src="../static/assets/js/breakpoints.min.js"></script>
-	<script src="../static/assets/js/util.js"></script>
-	<script src="../static/assets/js/main.js"></script>
-</body>
+		<!-- Scripts -->
+		<script src="../static/assets/js/jquery.min.js"></script>
+		<script src="../static/assets/js/jquery.poptrox.min.js"></script>
+		<script src="../static/assets/js/browser.min.js"></script>
+		<script src="../static/assets/js/breakpoints.min.js"></script>
+		<script src="../static/assets/js/util.js"></script>
+		<script src="../static/assets/js/main.js"></script>
+	</body>
 
 </html>
