@@ -16,10 +16,12 @@
 </head>
 
 {% if not current_user.is_authenticated %}
-	<body class="is-preload content-active">
-{% else %}
+
+<body class="is-preload content-active">
+	{% else %}
+
 	<body class="is-preload">
-{% endif %}
+		{% endif %}
 
 		<!-- Wrapper -->
 		<div id="wrapper">
@@ -27,8 +29,8 @@
 			<!-- Header -->
 			<header id="header">
 				<a href="https://www.passionfroid.fr/"></a><img
-					src="https://www.groupe-pomona.fr/sites/default/files/styles/picto/public/pictos/Logo%20PassionFroid%20V2.png?itok=cuLXWWR4"
-					width="90em" alt="logo_PassionFroid"></a>
+					src="https://media-exp1.licdn.com/dms/image/C4D0BAQEr4_linDQqTQ/company-logo_200_200/0/1582110933178?e=2159024400&v=beta&t=T4VGpeaP7mqQUNAMukUskRcjzxXAm23kEL2eJ1wkf1U"
+					width="80em" alt="logo_PassionFroid"></a>
 
 				{% if not current_user.is_authenticated %}
 
@@ -60,34 +62,34 @@
 
 			<!-- Footer -->
 			{% if not current_user.is_authenticated %}
-				<footer id="footer" class="panel active">
-			{% else %}
+			<footer id="footer" class="panel active">
+				{% else %}
 				<footer id="footer" class="panel">
-			{% endif %}
-				<div class="inner split">
-					<div>
-						<section>
-							<h2>Connexion</h2>
-							<form method="post" action="/login">
-								<div class="fields">
-									<div class="field half">
-										<input type="email" name="email" id="email" placeholder="Email" />
+					{% endif %}
+					<div class="inner split">
+						<div>
+							<section>
+								<h2>Connexion</h2>
+								<form method="post" action="/login">
+									<div class="fields">
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field half">
+											<input type="password" name="password" id="password"
+												placeholder="Mot de passe" />
+										</div>
 									</div>
-									<div class="field half">
-										<input type="password" name="password" id="password"
-											placeholder="Mot de passe" />
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Se connecter" class="primary" /></li>
-								</ul>
-							</form>
-						</section>
+									<ul class="actions">
+										<li><input type="submit" value="Se connecter" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+						</div>
 					</div>
-				</div>
-				<div class="cache">
-				</div>
-			</footer>
+					<div class="cache">
+					</div>
+				</footer>
 		</div>
 
 		<!-- Scripts -->
