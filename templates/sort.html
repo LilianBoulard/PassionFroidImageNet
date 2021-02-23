@@ -18,8 +18,8 @@
 	<header id="header">
 		<nav class="navbar navbar-light bg-#1f2224">
 			<a href="/">
-				<img src="http://www.salaisons-jouvin.fr/wp-content/uploads/2015/03/logo_pomona.jpg"
-					width="85em" alt="logo_PassionFroid">
+				<img src="http://www.salaisons-jouvin.fr/wp-content/uploads/2015/03/logo_pomona.jpg" width="85em"
+					alt="logo_PassionFroid">
 			</a>
 			<h1><strong>Filtrez votre recherche</strong></h1>
 			<a href="/dashboard">{{ user.name }}</a>
@@ -29,7 +29,7 @@
 	<!-- Main -->
 	<div class="main">
 		<section class="sectionForm">
-			<form method="get" action="/sort">
+			<form method="get" action="/">
 				<ul class="actions">
 					<div>
 						<input type="text" name="name" id="name" placeholder="Nom/Libellé image" />
@@ -45,12 +45,13 @@
 					<div>
 						<label>Photo avec un produit :</label>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="product_in" id="product_in_yes" value="yes">
+							<input class="form-check-input" type="radio" name="product_in" id="product_in_yes"
+								value="yes">
 							<label class="form-check-label" for="product_in_yes"> Oui</label>
 						</div>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="product_in"
-								id="product_in_no" value="no">
+							<input class="form-check-input" type="radio" name="product_in" id="product_in_no"
+								value="no">
 							<label class="form-check-label" for="product_in_no"> Non</label>
 						</div>
 					</div>
@@ -68,11 +69,13 @@
 					<div>
 						<label>Photo Institutionnelle :</label>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="institutional" id="institutional_yes" value="yes">
+							<input class="form-check-input" type="radio" name="institutional" id="institutional_yes"
+								value="yes">
 							<label class="form-check-label" for="institutional_yes"> Oui</label>
 						</div>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="institutional" id="institutional_no" value="no">
+							<input class="form-check-input" type="radio" name="institutional" id="institutional_no"
+								value="no">
 							<label class="form-check-label" for="institutional_yes"> Non</label>
 						</div>
 					</div>
@@ -83,7 +86,8 @@
 							<label class="form-check-label" for="vertical"> Verticale</label>
 						</div>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="format" id="horizontal" value="horizontal">
+							<input class="form-check-input" type="radio" name="format" id="horizontal"
+								value="horizontal">
 							<label class="form-check-label" for="horizontal"> Horizontale</label>
 						</div>
 					</div>
@@ -93,11 +97,13 @@
 					<div>
 						<label>Droits d'utilisation limités :</label>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="limited_use" id="limited_use_yes" value="yes">
+							<input class="form-check-input" type="radio" name="limited_use" id="limited_use_yes"
+								value="yes">
 							<label class="form-check-label" for="limited_use_yes"> Oui</label>
 						</div>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="limited_use" id="limited_use_no" value="no">
+							<input class="form-check-input" type="radio" name="limited_use" id="limited_use_no"
+								value="no">
 							<label class="form-check-label" for="limited_use_no"> Non</label>
 						</div>
 					</div>
@@ -110,19 +116,6 @@
 				</ul>
 			</form>
 		</section>
-		<section>
-		{% for img in image_db.search(image_db.create_filter_from_args(request.args), limit=10) %}
-			{% set full_url, thumb_url = img.get_url() %}
-			<div>
-				<article class="thumb">
-					<a href="{{ full_url }}" class="image"><img src="{{ thumb_url }}" alt="" /></a>
-				</article>
-			</div>
-		{% endfor %}
-		</section>
-
-		<div class="ResultSort">
-		</div>
 	</div>
 
 	<!-- Scripts -->
