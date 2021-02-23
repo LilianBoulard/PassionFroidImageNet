@@ -15,7 +15,7 @@
 	</noscript>
 </head>
 
-<body class="is-preload">
+<body class="is-preload content-active">
 
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -35,18 +35,18 @@
 
 		<!-- Main -->
 		<div id="main">
-		{% for img in image_db.get_x_random_images(limit=12, additional_filter={'format': False}) -%}
+			{% for img in image_db.get_x_random_images(limit=12, additional_filter={'format': False}) -%}
 			{% set full_url, thumb_url = image_db.get_image_url(img) %}
 			<article class="thumb">
 				<a href="{{ full_url }}" class="image"><img src="{{ thumb_url }}" alt="" /></a>
 				<h2>Ceci est une image</h2>
 				<p>Ceci est une description d'image.</p>
 			</article>
-		{% endfor %}
+			{% endfor %}
 		</div>
 
 		<!-- Footer -->
-		<footer id="footer" class="panel">
+		<footer id="footer" class="panel active">
 			<div class="inner split">
 				<div>
 					<section>
@@ -66,7 +66,7 @@
 						</form>
 					</section>
 				</div>
-				<div>
+				<!-- <div>
 					<section>
 						<h2>Inscription</h2>
 						<form method="post" action="#">
@@ -90,7 +90,7 @@
 							</ul>
 						</form>
 					</section>
-				</div>
+				</div> -->
 			</div>
 		</footer>
 
