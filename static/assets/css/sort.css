@@ -5,13 +5,20 @@ header {
   text-align: center;
 }
 
+body {
+  background-color: #1f2224;
+}
 .main {
   display: flex;
 }
 .sectionForm {
+  margin-left: 15em;
+  margin-right: 15em;
   color: whitesmoke;
   background-color: rgba(36, 38, 41, 0.975);
   box-sizing: border-box;
+  width: 100%;
+  text-align: center;
 }
 
 .sectionForm div {
@@ -20,11 +27,6 @@ header {
 
 .sectionForm ul {
   padding: 25px;
-}
-
-.sectionForm {
-  align-items: left;
-  justify-content: left;
 }
 
 input {
@@ -62,16 +64,4 @@ input {
   border-style: none;
   border-radius: 5px;
   color: whitesmoke;
-}
-
-.divImg {
-  height: 20em;
-  width: 30em;
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
-
-.resultSort {
-  display: flex;
-  flex-wrap: wrap;
 }
