@@ -18,8 +18,8 @@
 	<header id="header">
 		<nav class="navbar navbar-light bg-#1f2224">
 			<a href="/">
-				<img src="https://media-exp1.licdn.com/dms/image/C4D0BAQEr4_linDQqTQ/company-logo_200_200/0/1582110933178?e=2159024400&v=beta&t=T4VGpeaP7mqQUNAMukUskRcjzxXAm23kEL2eJ1wkf1U"
-					width="80em" alt="logo_PassionFroid">
+				<img src="http://www.salaisons-jouvin.fr/wp-content/uploads/2015/03/logo_pomona.jpg"
+					width="85em" alt="logo_PassionFroid">
 			</a>
 			<h1><strong>Filtrez votre recherche</strong></h1>
 			<a href="/dashboard">{{ user.name }}</a>
@@ -29,7 +29,7 @@
 	<!-- Main -->
 	<div class="main">
 		<section class="sectionForm">
-			<form method="post" action="#">
+			<form method="get" action="/sort">
 				<ul class="actions">
 					<div>
 						<input type="text" name="name" id="name" placeholder="Nom/Libellé image" />
@@ -45,53 +45,46 @@
 					<div>
 						<label>Photo avec un produit :</label>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="inlineRadioProduct"
-								id="inlineRadioProduct1" value="option1">
-							<label class="form-check-label" for="inlineRadioProduct1"> Oui</label>
+							<input class="form-check-input" type="radio" name="product_in" id="product_in_yes" value="yes">
+							<label class="form-check-label" for="product_in_yes"> Oui</label>
 						</div>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="inlineRadioProduct"
-								id="inlineRadioProduct2" value="option2">
-							<label class="form-check-label" for="inlineRadioProduct2"> Non</label>
+							<input class="form-check-input" type="radio" name="product_in"
+								id="product_in_no" value="no">
+							<label class="form-check-label" for="product_in_no"> Non</label>
 						</div>
 					</div>
 					<div>
 						<label>Photo avec un humain :</label>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="inlineRadioHuman" id="inlineRadioHuman1"
-								value="option1">
-							<label class="form-check-label" for="inlineRadioHuman1"> Oui</label>
+							<input class="form-check-input" type="radio" name="human_in" id="human_in_yes" value="yes">
+							<label class="form-check-label" for="human_in_yes"> Oui</label>
 						</div>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="inlineRadioHuman" id="inlineRadioHuman2"
-								value="option2">
-							<label class="form-check-label" for="inlineRadioHuman2"> Non</label>
+							<input class="form-check-input" type="radio" name="human_in" id="human_in_no" value="no">
+							<label class="form-check-label" for="human_in_no"> Non</label>
 						</div>
 					</div>
 					<div>
 						<label>Photo Institutionnelle :</label>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="inlineRadioInsti" id="inlineRadioInsti1"
-								value="option1">
-							<label class="form-check-label" for="inlineRadioInsti1"> Oui</label>
+							<input class="form-check-input" type="radio" name="institutional" id="institutional_yes" value="yes">
+							<label class="form-check-label" for="institutional_yes"> Oui</label>
 						</div>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="inlineRadioInsti" id="inlineRadioInsti2"
-								value="option2">
-							<label class="form-check-label" for="inlineRadioInsti2"> Non</label>
+							<input class="form-check-input" type="radio" name="institutional" id="institutional_no" value="no">
+							<label class="form-check-label" for="institutional_yes"> Non</label>
 						</div>
 					</div>
 					<div>
 						<label>L'image est :</label>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="inlineRadioFormat"
-								id="inlineRadioFormat1" value="option1">
-							<label class="form-check-label" for="inlineRadioFormat1"> Vertical </label>
+							<input class="form-check-input" type="radio" name="format" id="vertical" value="vertical">
+							<label class="form-check-label" for="vertical"> Verticale</label>
 						</div>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="inlineRadioFormat"
-								id="inlineRadioFormat2" value="option2">
-							<label class="form-check-label" for="inlineRadioFormat2"> Horizontal </label>
+							<input class="form-check-input" type="radio" name="format" id="horizontal" value="horizontal">
+							<label class="form-check-label" for="horizontal"> Horizontale</label>
 						</div>
 					</div>
 					<div>
@@ -100,20 +93,18 @@
 					<div>
 						<label>Droits d'utilisation limités :</label>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="inlineRadioDroit" id="inlineRadioDroit1"
-								value="option1">
-							<label class="form-check-label" for="inlineRadioDroit1"> Oui</label>
+							<input class="form-check-input" type="radio" name="limited_use" id="limited_use_yes" value="yes">
+							<label class="form-check-label" for="limited_use_yes"> Oui</label>
 						</div>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="inlineRadioDroit" id="inlineRadioDroit2"
-								value="option2">
-							<label class="form-check-label" for="inlineRadioDroit2"> Non</label>
+							<input class="form-check-input" type="radio" name="limited_use" id="limited_use_no" value="no">
+							<label class="form-check-label" for="limited_use_no"> Non</label>
 						</div>
 					</div>
 					<div class="form-group">
 						<label>Date de fin des droits d'utilisation :</label>
 						<div>
-							<input type="date" value="2021-02-23" id="date">
+							<input type="date" id="date">
 						</div>
 					</div>
 					<div>
@@ -124,6 +115,16 @@
 					</div>
 				</ul>
 			</form>
+		</section>
+		<section>
+		{% for img in image_db.search(image_db.create_filter_from_args(request.args), limit=10) %}
+			{% set full_url, thumb_url = img.get_url() %}
+			<div>
+				<article class="thumb">
+					<a href="{{ full_url }}" class="image"><img src="{{ thumb_url }}" alt="" /></a>
+				</article>
+			</div>
+		{% endfor %}
 		</section>
 
 		<div class="ResultSort">
