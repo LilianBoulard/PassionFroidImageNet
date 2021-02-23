@@ -15,6 +15,7 @@
 	</noscript>
 </head>
 
+<!-- Condition pour savoir si un utilisateur est connecté, changement de l'html selon le résultat -->
 {% if not current_user.is_authenticated %}
 
 <body class="is-preload content-active">
@@ -50,6 +51,7 @@
 
 			<!-- Main -->
 			<div id="main">
+				<!-- Boucle pour l'affichage des images -->
 				{% for img in image_db.search(image_db.create_filter_from_args(request.args), limit=10) %}
 				{% set full_url, thumb_url = img.get_url() %}
 				<article class="thumb">
