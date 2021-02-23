@@ -108,12 +108,12 @@ def require_login(func):
 
 @app.route('/')
 def home():
-    return render_template('index.html', image_db=image_db)
+    return render_template('index.html', image_db=image_db, user=current_user)
 
 
 @app.route('/sort', methods=['GET', 'POST'])
 def sort():
-    return render_template('sort.html')
+    return render_template('sort.html', user=current_user)
 
 
 @app.route('/login', methods=['POST'])
@@ -135,7 +135,7 @@ def login():
 @app.route('/dashboard')
 @login_required
 def dashboard():
-    return f'User info: {vars(current_user)}<br /><a href="/logout">Logout</a>'
+    return render_template('dashboard.html', user=current_user)
 
 
 @app.route('/logout')

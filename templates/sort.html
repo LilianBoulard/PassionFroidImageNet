@@ -16,12 +16,13 @@
 
 	<!-- Header -->
 	<header id="header">
-		<nav class="navbar">
+		<nav class="navbar navbar-light bg-#1f2224">
 			<a href="/">
 				<img src="https://www.groupe-pomona.fr/sites/default/files/styles/picto/public/pictos/Logo%20PassionFroid%20V2.png?itok=cuLXWWR4"
-					width="100em" alt="logo_PassionFroid">
+					width="85em" alt="logo_PassionFroid">
 			</a>
-			<h1>Filtrez votre recherche</h1>
+			<h1><strong>Filtrez votre recherche</strong></h1>
+			<a href="/dashboard">{{ user.name }}</a>
 		</nav>
 	</header>
 
@@ -119,13 +120,13 @@
 						<input type="text" name="tags" id="tags" placeholder=" Tags" />
 					</div>
 					<div>
-						<input id="button" type="submit" value="Recherche"/>
+						<input id="button" type="submit" value="Recherche" />
 					</div>
 				</ul>
 			</form>
 		</section>
 
-		<div class="ResultSort">			
+		<div class="ResultSort">
 		</div>
 	</div>
 
