@@ -81,6 +81,39 @@ class ImageDatabase(Database):
         keys = set(args.keys())
         filter_args = {}
 
+        if "name" in keys:
+            value = args.get('name')
+            if value != "":
+                filter_args.update({"text_filter": args.get('name')})
+        if "product_in" in keys:
+            value = args.get('product_in')
+            if value != "":
+                filter_args.update({"product_in": 'true' if value == "yes" else 'false'})
+        if "human_in" in keys:
+            value = args.get('human_in')
+            if value != "":
+                filter_args.update({"human_in": 'true' if value == "yes" else 'false'})
+        if "institutional" in keys:
+            value = args.get('institutional')
+            if value != "":
+                filter_args.update({"institutional": 'true' if value == "yes" else 'false'})
+        if "format" in keys:
+            value = args.get('format')
+            if value != "":
+                filter_args.update({"picture_format": 'true' if value == "vertical" else 'false'})
+        if "credit" in keys:
+            value = args.get('credit')
+            if value != "":
+                filter_args.update({"author_credits": value})
+        if "limited_use" in keys:
+            value = args.get('limited_use')
+            if value != "":
+                filter_args.update({"limited_usage": 'true' if value == "yes" else 'false'})
+        if "tags" in keys:
+            value = args.get('tags')
+            if value != "":
+                filter_args.update({"limited_usage": value.split(';')})
+
         f = Filter(**filter_args)
         return f
 
@@ -94,7 +127,7 @@ class ImageDatabase(Database):
         """
         query = f.forge_query()
         returned_events = self._collection.find(query).limit(limit)
-        return [Image(info['fields']) for info in returned_events]
+        return [Image(info) for info in returned_events]
 
 
 class UserDatabase(Database):
