@@ -2227,3 +2227,9 @@ body.is-preload #main .thumb {
 #footer .copyright a {
   color: inherit;
 }
+
+.cache {
+  height: 100%;
+  width: 100%;
+  z-index: 10002;
+}
