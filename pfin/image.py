@@ -19,7 +19,7 @@ image_structure = {
     'credits': str,  # Name of the original author.
     'limited_usage': bool,  # Whether its use is limited.
     'copyright': bool,  # If the usage is limited, True, False otherwise.
-    'usage_end': int,  # Date of end of rights.
+    'usage_end': str,  # Date of end of rights.
     'tags': list,  # A list of tags.
 }
 
