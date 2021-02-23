@@ -36,7 +36,7 @@
 		<!-- Main -->
 		<div id="main">
 			{% for img in image_db.get_x_random_images(limit=12, additional_filter={'format': False}) -%}
-			{% set full_url, thumb_url = image_db.get_image_url(img) %}
+			{% set full_url, thumb_url = img.get_url() %}
 			<article class="thumb">
 				<a href="{{ full_url }}" class="image"><img src="{{ thumb_url }}" alt="" /></a>
 				<h2>Ceci est une image</h2>
@@ -51,13 +51,13 @@
 				<div>
 					<section>
 						<h2>Connexion</h2>
-						<form method="post" action="#">
+						<form method="post" action="/login">
 							<div class="fields">
 								<div class="field half">
-									<input type="text" name="name" id="name" placeholder="Name" />
+									<input type="email" name="email" id="email" placeholder="Email" />
 								</div>
 								<div class="field half">
-									<input type="text" name="password" id="password" placeholder="Mot de passe" />
+									<input type="password" name="password" id="password" placeholder="Mot de passe" />
 								</div>
 							</div>
 							<ul class="actions">
@@ -69,20 +69,20 @@
 				<!-- <div>
 					<section>
 						<h2>Inscription</h2>
-						<form method="post" action="#">
+						<form method="post" action="/register">
 							<div class="fields">
 								<div class="field half">
 									<input type="text" name="name" id="name" placeholder="Nom" />
 								</div>
 								<div class="field half">
-									<input type="text" name="email" id="email" placeholder="Email" />
+									<input type="email" name="email" id="email" placeholder="Email" />
 								</div>
 								<div class="field half">
-									<input type="text" name="password" id="password" placeholder="Mot de passe" />
+									<input type="password" name="password" id="password" placeholder="Mot de passe" />
 								</div>
 								<div class="field half">
-									<input type="text" name="password" id="ConfPassword"
-										placeholder="Confirmer mot de passe" />
+									<input type="password" name="password" id="ConfPassword"
+										placeholder="Confirmation du mot de passe" />
 								</div>
 							</div>
 							<ul class="actions">

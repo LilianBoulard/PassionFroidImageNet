@@ -4,7 +4,7 @@ import shelve
 import pymongo
 import logging
 
-from typing import List, Tuple
+from typing import List
 
 from .user import User
 from .image import Image
@@ -73,12 +73,6 @@ class ImageDatabase(Database):
         random.shuffle(images)
         return [Image(info) for info in images[:limit]]
 
-    def get_image_url(self, image: Image) -> Tuple[str, str]:
-        file_name = f'{image.id}.{image.extension}'
-        full = f'{os.path.join(IMAGE_HOST_URL, "fulls/", file_name)}'
-        thumb = f'{os.path.join(IMAGE_HOST_URL, "thumbs/", file_name)}'
-        return full, thumb
-
     def create_filter_from_args(self, args: dict) -> Filter:
         """
         Takes the arguments of a Flask (HTTP) request,
@@ -112,7 +106,7 @@ class UserDatabase(Database):
         """
         search = {'email': email_address}
         result = self._collection.find(search)
-        return True if len(result) == 1 else False
+        return True if result.retrieved == 1 else False
 
     def get_user_information(self, email_address: str):
         search = {'email': email_address}
