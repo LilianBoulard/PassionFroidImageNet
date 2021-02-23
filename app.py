@@ -113,7 +113,7 @@ def home():
 
 @app.route('/sort', methods=['GET', 'POST'])
 def sort():
-    return render_template('sort.html', user=current_user)
+    return render_template('sort.html', image_db=image_db, user=current_user)
 
 
 @app.route('/login', methods=['POST'])

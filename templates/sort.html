@@ -127,6 +127,14 @@
 		</section>
 
 		<div class="ResultSort">
+			{% for img in image_db.get_x_random_images(limit=12, additional_filter={'format': False}) -%}
+			{% set full_url, thumb_url = img.get_url() %}
+			<article class="thumb">
+				<a href="{{ full_url }}" class="image"><img src="{{ thumb_url }}" alt="" /></a>
+				<h2>Ceci est une image</h2>
+				<p>Ceci est une description d'image.</p>
+			</article>
+			{% endfor %}
 		</div>
 	</div>
 

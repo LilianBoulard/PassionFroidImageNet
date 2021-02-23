@@ -33,19 +33,19 @@
 					width="90em" alt="logo_PassionFroid"></a>
 
 				{% if not current_user.is_authenticated %}
-				<ul>
-					<h1><a href="/"><strong>Filtrer</strong></a></h1>
-					{% else %}
-					<h1><a href="sort"><strong>Filtrer</strong></a></h1>
-					{% endif %}
-					<nav>
-						<ul>
-							{% if not current_user.is_authenticated %}
-							{% else %}
-							<li><a href="/dashboard">{{ user.name }}</a></li>
-							{% endif %}
-						</ul>
-					</nav>
+
+				<h1><a href="/"><strong>Filtrer</strong></a></h1>
+				{% else %}
+				<h1><a href="sort"><strong>Filtrer</strong></a></h1>
+				{% endif %}
+				<nav>
+					<ul>
+						{% if not current_user.is_authenticated %}
+						{% else %}
+						<li><a href="/dashboard">{{ user.name }}</a></li>
+						{% endif %}
+					</ul>
+				</nav>
 			</header>
 
 			<!-- Main -->
