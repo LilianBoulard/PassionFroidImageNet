@@ -1210,7 +1210,8 @@ table.alt tfoot {
 }
 
 .panel > .inner.split > :first-child {
-  margin-left: 0;
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
 
 .panel > .closer {
