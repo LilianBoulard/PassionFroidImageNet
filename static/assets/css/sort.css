@@ -12,12 +12,12 @@ body {
   display: flex;
 }
 .sectionForm {
-  margin-left: 15em;
-  margin-right: 15em;
+  margin-left: 50%;
+  transform: translateX(-50%);
   color: whitesmoke;
   background-color: rgba(36, 38, 41, 0.975);
   box-sizing: border-box;
-  width: 100%;
+  width: 90em;
   text-align: center;
 }
 
