@@ -63,3 +63,15 @@ input {
   border-radius: 5px;
   color: whitesmoke;
 }
+
+.divImg {
+  height: 20em;
+  width: 30em;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.resultSort {
+  display: flex;
+  flex-wrap: wrap;
+}

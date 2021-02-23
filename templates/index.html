@@ -29,8 +29,8 @@
 			<!-- Header -->
 			<header id="header">
 				<a href="https://www.passionfroid.fr/"></a><img
-					src="http://www.salaisons-jouvin.fr/wp-content/uploads/2015/03/logo_pomona.jpg"
-					width="85em" alt=""></a>
+					src="http://www.salaisons-jouvin.fr/wp-content/uploads/2015/03/logo_pomona.jpg" width="85em"
+					alt=""></a>
 
 				{% if not current_user.is_authenticated %}
 
@@ -50,15 +50,15 @@
 
 			<!-- Main -->
 			<div id="main">
-				{% for img in image_db.get_x_random_images(limit=12, additional_filter={'format': 'false'}) -%}
+				{% for img in image_db.search(image_db.create_filter_from_args(request.args), limit=10) %}
 				{% set full_url, thumb_url = img.get_url() %}
 				<article class="thumb">
 					<a href="{{ full_url }}" class="image"><img src="{{ thumb_url }}" alt="" /></a>
 					<p>
 						<a href="{{ full_url }}" download="">Download</a>
-					{% for tag in img.tags %}
+						{% for tag in img.tags %}
 						<i>[{{ tag }}]</i>
-					{% endfor %}
+						{% endfor %}
 					</p>
 				</article>
 				{% endfor %}
