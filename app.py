@@ -111,7 +111,7 @@ def home():
     return render_template('index.html', image_db=image_db)
 
 
-@app.route('/sort')
+@app.route('/sort', methods=['GET', 'POST'])
 def sort():
     return render_template('sort.html')
 
